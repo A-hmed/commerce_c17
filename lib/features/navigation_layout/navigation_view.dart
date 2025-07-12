@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
-import 'package:route_e_commerce_v2/features/navigation_layout/tabs/categories/categories_tab_view.dart';
+import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
+import 'package:route_e_commerce_v2/features/navigation_layout/tabs/categories/presentation/categories_tab_view.dart';
 import 'package:route_e_commerce_v2/features/navigation_layout/tabs/favorite/favorite_tab_view.dart';
-import 'package:route_e_commerce_v2/features/navigation_layout/tabs/home/home_tab_view.dart';
+import 'package:route_e_commerce_v2/features/navigation_layout/tabs/home/presentation/home_tab_view.dart';
 import 'package:route_e_commerce_v2/features/navigation_layout/tabs/profile/profile_tab_view.dart';
 import 'package:route_e_commerce_v2/features/navigation_layout/widgets/home_bottom_navigation_bar_item.dart';
 
@@ -30,6 +32,10 @@ class _NavigationViewState extends State<NavigationView> {
       valueListenable: index,
       builder:
           (context, value, child) => Scaffold(
+            appBar: AppBar(
+              title: SvgPicture.asset(AppSvgs.logo),
+              automaticallyImplyLeading: false,
+            ),
             body: pages[value],
             bottomNavigationBar: ClipRRect(
               borderRadius: const BorderRadius.only(

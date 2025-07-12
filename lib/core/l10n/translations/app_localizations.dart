@@ -100,6 +100,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Route'**
   String get appName;
+
+  /// No description provided for @searchHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'what do you search for?'**
+  String get searchHintText;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get viewAll;
+
+  /// No description provided for @homeAppliance.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Appliance'**
+  String get homeAppliance;
+
+  /// No description provided for @shopNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop Now'**
+  String get shopNow;
+
+  /// No description provided for @upTo.
+  ///
+  /// In en, this message translates to:
+  /// **'UP TO'**
+  String get upTo;
+
+  /// No description provided for @fistOff.
+  ///
+  /// In en, this message translates to:
+  /// **'20% OFF'**
+  String get fistOff;
+
+  /// No description provided for @secondOff.
+  ///
+  /// In en, this message translates to:
+  /// **'25% OFF'**
+  String get secondOff;
+
+  /// No description provided for @thirdOff.
+  ///
+  /// In en, this message translates to:
+  /// **'30% OFF'**
+  String get thirdOff;
+
+  /// No description provided for @advertisement1.
+  ///
+  /// In en, this message translates to:
+  /// **'For all Headphones\n& AirPods'**
+  String get advertisement1;
+
+  /// No description provided for @advertisement2.
+  ///
+  /// In en, this message translates to:
+  /// **'For all Makeup\n& Skincare'**
+  String get advertisement2;
+
+  /// No description provided for @advertisement3.
+  ///
+  /// In en, this message translates to:
+  /// **'For Laptops\n& Mobiles'**
+  String get advertisement3;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

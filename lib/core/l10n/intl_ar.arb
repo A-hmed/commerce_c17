@@ -1,3 +1,15 @@
 {
-  "appName" : "رووت"
+  "appName" : "رووت",
+  "searchHintText" : "ماذا تبحث عنه؟",
+  "categories" : "الفئات",
+  "viewAll" : "عرض الكل",
+  "homeAppliance" : "الأجهزة المنزلية",
+  "shopNow" : "تسوق الآن",
+  "upTo" : "حتى",
+  "fistOff" : "خصم 20%",
+  "secondOff" : "خصم 25%",
+  "thirdOff" : "خصم 30%",
+  "advertisement1" : "لكل سماعات الرأس\nو AirPods",
+  "advertisement2" : "لكل مستحضرات التجميل\nوالعناية بالبشرة",
+  "advertisement3" : "للحواسيب المحمولة\nوالهواتف المحمولة"
 }
