@@ -1,3 +1,15 @@
 {
-  "appName": "Route"
+  "appName": "Route",
+  "searchHintText": "what do you search for?",
+  "categories": "Categories",
+  "viewAll": "View All",
+  "homeAppliance": "Home Appliance",
+  "shopNow": "Shop Now",
+  "upTo": "UP TO",
+  "fistOff": "20% OFF",
+  "secondOff": "25% OFF",
+  "thirdOff": "30% OFF",
+  "advertisement1": "For all Headphones\n& AirPods",
+  "advertisement2": "For all Makeup\n& Skincare",
+  "advertisement3": "For Laptops\n& Mobiles"
 }
