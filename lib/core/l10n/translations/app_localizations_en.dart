@@ -46,4 +46,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get advertisement3 => 'For Laptops\n& Mobiles';
+
+  @override
+  String get cart => 'Cart';
+
+  @override
+  String get totalPrice => 'Total Price';
+
+  @override
+  String get checkout => 'Check Out';
+
+  @override
+  String get addToCart => 'Add to Cart';
+
+  @override
+  String get egp => 'EGP';
 }

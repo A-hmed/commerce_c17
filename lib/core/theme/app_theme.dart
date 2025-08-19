@@ -7,6 +7,7 @@ class AppTheme {
     return ThemeData(
       colorScheme: colorScheme,
       splashColor: Colors.transparent,
+      scaffoldBackgroundColor: colorScheme.surface,
 
       textTheme: TextTheme(
         headlineSmall: GoogleFonts.poppins(

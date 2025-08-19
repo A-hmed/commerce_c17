@@ -46,4 +46,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get advertisement3 => 'للحواسيب المحمولة\nوالهواتف المحمولة';
+
+  @override
+  String get cart => 'السلة';
+
+  @override
+  String get totalPrice => 'السعر النهائي';
+
+  @override
+  String get checkout => 'الدفع';
+
+  @override
+  String get addToCart => 'اضف الي السلة';
+
+  @override
+  String get egp => 'جنيه';
 }
