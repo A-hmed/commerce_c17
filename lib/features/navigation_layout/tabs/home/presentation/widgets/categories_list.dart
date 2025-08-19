@@ -11,7 +11,7 @@ class CategoriesList extends StatelessWidget {
     final List<Category> categories = DummyDataProvider.generateCategories();
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.28,
+        height: 260,
         child: GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
