@@ -1,6 +1,7 @@
 import 'package:route_e_commerce_v2/features/cart/domain/entities/cart.dart';
 import 'package:route_e_commerce_v2/features/cart/domain/entities/cart_product_entity.dart';
 import 'package:route_e_commerce_v2/features/navigation_layout/tabs/categories/domain/entities/category.dart';
+import 'package:route_e_commerce_v2/features/navigation_layout/tabs/favorite/domain/entities/wishlist_entity.dart';
 import 'package:route_e_commerce_v2/features/products/domain/entity/product.dart';
 
 abstract class DummyDataProvider {
@@ -96,5 +97,36 @@ abstract class DummyDataProvider {
       version: 1,
       totalCartPrice: totalCartPrice,
     );
+  }
+
+  static Wishlist generateWishlistProducts() {
+    List<Product> wishlistProducts = [];
+    final List<String> colors = ['Red', 'Black', 'Blue', 'Green', 'Yellow'];
+    for (int i = 1; i <= 8; i++) {
+      wishlistProducts.add(
+        Product(
+          id: '$i',
+          title: 'Nike Air Jordon $i',
+          description:
+              'Sole Material: Rubber, Colour: ${colors[i % 5]}, Department: Men',
+          price: 1500 + (i * 200),
+          priceAfterDiscount: 1300 + (i * 180),
+          imageCover:
+              'https://ecommerce.routemisr.com/Route-Academy-products/1680399913757-cover.jpeg',
+          images: [
+            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-1.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913851-4.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-2.jpeg',
+          ],
+          categoryId: '6439d5b90049ad0b52b90048',
+          brandId: '64089d5c24b25627a253159f',
+          ratingsAverage: 4.0 + (i % 5) * 0.1,
+          ratingsQuantity: 10 + i,
+          quantity: 50 + i,
+          availableColors: colors,
+        ),
+      );
+    }
+    return Wishlist(count: 8, products: wishlistProducts);
   }
 }

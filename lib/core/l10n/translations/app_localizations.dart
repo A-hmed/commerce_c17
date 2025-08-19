@@ -202,6 +202,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'EGP'**
   String get egp;
+
+  /// No description provided for @color.
+  ///
+  /// In en, this message translates to:
+  /// **'color'**
+  String get color;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

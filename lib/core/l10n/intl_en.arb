@@ -16,5 +16,6 @@
   "totalPrice": "Total Price",
   "checkout": "Check Out",
   "addToCart": "Add to Cart",
-  "egp": "EGP"
+  "egp": "EGP",
+  "color": "color"
 }

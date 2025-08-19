@@ -61,4 +61,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get egp => 'جنيه';
+
+  @override
+  String get color => 'لون';
 }
