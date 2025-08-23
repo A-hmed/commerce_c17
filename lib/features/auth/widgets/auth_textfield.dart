@@ -48,7 +48,7 @@ class AuthTextField extends StatelessWidget {
               borderSide: BorderSide(color: Colors.blue[700]!, width: 2),
             ),
           ),
-          style: TextStyle(color: Colors.black87),
+          style: const TextStyle(color: Colors.black87),
 
         ),
       ],

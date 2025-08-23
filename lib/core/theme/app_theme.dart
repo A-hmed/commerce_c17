@@ -9,6 +9,7 @@ class AppTheme {
       splashColor: Colors.transparent,
       scaffoldBackgroundColor: colorScheme.surface,
 
+
       textTheme: TextTheme(
         headlineSmall: GoogleFonts.poppins(
           fontSize: 12,
@@ -58,6 +59,8 @@ class AppTheme {
         )
       ),
 
+
+
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: colorScheme.primary,
         selectionColor: colorScheme.primary.withValues(alpha: .5),
@@ -95,6 +98,7 @@ class AppTheme {
           borderSide: BorderSide(color: colorScheme.error),
         ),
       ),
+
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(

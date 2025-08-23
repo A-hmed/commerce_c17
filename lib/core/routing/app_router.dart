@@ -28,7 +28,7 @@ abstract class AppRouter {
       case Routes.loginRoute:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const Login(),
+          builder: (_) =>  Login(),
         );
       default:
         return MaterialPageRoute(
