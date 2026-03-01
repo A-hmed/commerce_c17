@@ -13,7 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_native_splash:
   icons_launcher:
-  flutter_bloc:
+  flutter_bloc: ^9.1.1
   icons_plus:
   flutter_localizations:
     sdk: flutter
@@ -22,12 +22,25 @@ dependencies:
   google_fonts: ^8.0.2
   dots_indicator: ^4.0.1
   cached_network_image: ^3.4.1
+  retrofit: ^4.9.2
+  connectivity_plus: ^7.0.0
+  json_annotation: ^4.11.0
+  retrofit_generator: ^10.2.3
+  get_it: ^9.2.1
+  injectable: ^2.7.1+4
+  logger: ^2.6.2
+  pretty_dio_logger: ^1.4.0
+  dio: ^5.9.1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^5.0.0
+  build_runner: ^2.11.1
+  json_serializable: ^6.13.0
+  injectable_generator: ^2.12.0
 
 flutter:
   uses-material-design: true
