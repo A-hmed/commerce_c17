@@ -1,7 +1,7 @@
-class User {
-  User({this.name, this.email, this.role});
+class AppUser {
+  AppUser({this.name, this.email, this.role});
 
-  User.fromJson(dynamic json) {
+  AppUser.fromJson(dynamic json) {
     name = json['name'];
     email = json['email'];
     role = json['role'];

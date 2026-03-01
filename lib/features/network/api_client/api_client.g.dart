@@ -20,13 +20,13 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AuthResponse> login(LoginRequest loginRequest) async {
+  Future<HttpResponse<AuthResponse>> login(LoginRequest loginRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(loginRequest.toJson());
-    final _options = _setStreamType<AuthResponse>(
+    final _options = _setStreamType<HttpResponse<AuthResponse>>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -44,17 +44,20 @@ class _ApiClient implements ApiClient {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
-    return _value;
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
   }
 
   @override
-  Future<AuthResponse> register(RegisterRequest registerRequest) async {
+  Future<HttpResponse<AuthResponse>> register(
+    RegisterRequest registerRequest,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(registerRequest.toJson());
-    final _options = _setStreamType<AuthResponse>(
+    final _options = _setStreamType<HttpResponse<AuthResponse>>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -72,7 +75,8 @@ class _ApiClient implements ApiClient {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
-    return _value;
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

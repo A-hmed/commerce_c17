@@ -14,7 +14,7 @@ abstract class GetItModule {
     var dio = Dio(
       BaseOptions(baseUrl: ApiConstants.baseUrl)
     );
-    dio.interceptors.add(PrettyDioLogger());
+    dio.interceptors.add(PrettyDioLogger(requestBody: true));
     return dio;
   }
 }
