@@ -4,8 +4,7 @@ import 'package:route_e_commerce_v2/core/routing/routes.dart';
 import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
 import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
 import 'package:route_e_commerce_v2/core/utils/validation.dart';
-import 'package:route_e_commerce_v2/features/auth/widgets/auth_textfield.dart';
-
+import 'package:route_e_commerce_v2/features/auth/ui/widgets/auth_textfield.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
