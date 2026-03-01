@@ -4,16 +4,25 @@ import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dar
 import 'package:route_e_commerce_v2/core/routing/app_router.dart';
 import 'package:route_e_commerce_v2/core/routing/routes.dart';
 import 'package:route_e_commerce_v2/core/theme/app_theme.dart';
+import 'package:route_e_commerce_v2/core/utils/shared_prefs_utils.dart';
 
-void main() {
+import 'core/di/di.dart';
+
+void main() async {
+  initDependencies();
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(const MyApp());
+
+  var isLoggedIn = (await getIt<SharedPrefsUtils>().getToken())?.isNotEmpty ?? false;
+
+  runApp(MyApp(isLoggedIn: isLoggedIn));
   FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final isLoggedIn;
+
+  const MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,9 @@ class MyApp extends StatelessWidget {
       locale: const Locale("en"),
       theme: AppTheme.getLightThemeData(),
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: Routes.loginRoute,
+      initialRoute: isLoggedIn ? Routes.navigationRoute : Routes.loginRoute,
     );
   }
 }
+
+///Widget -> ViewModel -> UseCase -> Repository -> Datasource

@@ -5,12 +5,12 @@ class AuthResponse {
 
   AuthResponse.fromJson(dynamic json) {
     message = json['message'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    user = json['user'] != null ? AppUser.fromJson(json['user']) : null;
     token = json['token'];
   }
 
   String? message;
-  User? user;
+  AppUser? user;
   String? token;
 
   Map<String, dynamic> toJson() {

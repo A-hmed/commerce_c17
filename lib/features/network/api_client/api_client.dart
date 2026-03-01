@@ -16,8 +16,8 @@ abstract class ApiClient {
   factory ApiClient(Dio dio) = _ApiClient;
 
   @POST("/api/v1/auth/signin")
-  Future<AuthResponse> login(@Body() LoginRequest loginRequest);
+  Future<HttpResponse<AuthResponse>> login(@Body() LoginRequest loginRequest);
 
   @POST("/api/v1/auth/signup")
-  Future<AuthResponse> register(@Body() RegisterRequest registerRequest);
+  Future<HttpResponse<AuthResponse>> register(@Body() RegisterRequest registerRequest);
 }
