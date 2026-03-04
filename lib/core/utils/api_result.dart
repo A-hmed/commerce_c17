@@ -6,6 +6,8 @@ sealed class ApiResult<T> {
   bool get isError => this is ErrorApiResult;
 
   AppErrors get error => (this as ErrorApiResult).errors;
+
+  T? getData() => (this as SuccessApiResult<T>).data;
 }
 
 class SuccessApiResult<T> extends ApiResult<T> {

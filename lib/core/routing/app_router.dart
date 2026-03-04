@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:route_e_commerce_v2/core/routing/routes.dart';
 import 'package:route_e_commerce_v2/features/cart/presentation/screen/cart_screen.dart';
 import 'package:route_e_commerce_v2/features/auth/ui/screens/login/login.dart';
-import 'package:route_e_commerce_v2/features/navigation_layout/navigation_view.dart';
+import 'package:route_e_commerce_v2/features/commerce/ui/screens/navigation_layout/navigation_view.dart';
 
 abstract class AppRouter {
   static Route generateRoute(RouteSettings settings) {
