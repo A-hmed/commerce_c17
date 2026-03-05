@@ -9,6 +9,11 @@ class ServerError extends AppErrors {
     : super(message);
 }
 
+class ApiError extends AppErrors {
+  ApiError({String message = "Something went wrong please try again later"})
+    : super(message);
+}
+
 class NetworkError extends AppErrors {
   NetworkError({String message = "Please check your internet connection"})
     : super(message);

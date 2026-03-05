@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
-import 'package:route_e_commerce_v2/features/products/domain/entity/product.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/models/product.dart';
 
 class CustomProductCard extends StatelessWidget {
   final Product product;
@@ -48,12 +48,15 @@ class CustomProductCard extends StatelessWidget {
                       Text(
                         product.title ?? 'Unknown Product',
                         style: textTheme.headlineSmall,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
 
                       Text(
                         product.description ?? 'No description available',
                         style: textTheme.headlineSmall,
                         overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
                       const SizedBox(height: 8),
                       Row(
