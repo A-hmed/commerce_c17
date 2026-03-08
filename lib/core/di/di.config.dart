@@ -38,6 +38,8 @@ import '../../features/commerce/domain/usecases/get_products_usecase.dart'
     as _i995;
 import '../../features/commerce/domain/usecases/get_sub_categories_usecase.dart'
     as _i78;
+import '../../features/commerce/ui/screens/navigation_layout/tabs/categories/cubit/categories_cubit.dart'
+    as _i535;
 import '../../features/commerce/ui/screens/navigation_layout/tabs/home/cubit/home_cubit.dart'
     as _i658;
 import '../../features/network/api_client/api_client.dart' as _i652;
@@ -96,6 +98,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i78.GetSubCategoriesUseCase>(
       () => _i78.GetSubCategoriesUseCase(gh<_i972.HomeRepo>()),
+    );
+    gh.factory<_i535.CategoriesCubit>(
+      () => _i535.CategoriesCubit(
+        gh<_i158.GetCategoriesUseCase>(),
+        gh<_i78.GetSubCategoriesUseCase>(),
+      ),
     );
     gh.factory<_i658.HomeCubit>(
       () => _i658.HomeCubit(
