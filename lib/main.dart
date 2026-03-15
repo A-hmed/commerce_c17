@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dart';
 import 'package:route_e_commerce_v2/core/routing/app_router.dart';
 import 'package:route_e_commerce_v2/core/routing/routes.dart';
 import 'package:route_e_commerce_v2/core/theme/app_theme.dart';
 import 'package:route_e_commerce_v2/core/utils/shared_prefs_utils.dart';
+import 'package:route_e_commerce_v2/features/cart/presentation/screen/cart_cubit/cart_cubit.dart';
 
 import 'core/di/di.dart';
 
@@ -15,7 +17,9 @@ void main() async {
 
   var isLoggedIn = (await getIt<SharedPrefsUtils>().getToken())?.isNotEmpty ?? false;
 
-  runApp(MyApp(isLoggedIn: isLoggedIn));
+  runApp(BlocProvider(
+      create: (_) => getIt<CartCubit>(),
+      child: MyApp(isLoggedIn: isLoggedIn)));
   FlutterNativeSplash.remove();
 }
 

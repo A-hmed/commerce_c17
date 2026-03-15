@@ -18,9 +18,7 @@ class FavoriteTabView extends StatelessWidget {
             itemBuilder: (context, index) {
               return WishlistProductWidget(
                 product: wishlistProducts.products?[index],
-                colorIndex:
-                    index %
-                    wishlistProducts.products![index].availableColors!.length,
+                colorIndex: (index % wishlistProducts.products![index].availableColors!.length).toInt(),
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 16),

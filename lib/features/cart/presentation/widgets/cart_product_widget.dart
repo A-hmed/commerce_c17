@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dart';
 import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
 import 'package:route_e_commerce_v2/features/cart/domain/entities/cart_product_entity.dart';
+import 'package:route_e_commerce_v2/features/cart/presentation/screen/cart_cubit/cart_cubit.dart';
 
 class CartProductWidget extends StatelessWidget {
   final CartProduct cartProduct;
@@ -49,8 +51,8 @@ class CartProductWidget extends StatelessWidget {
                       cartProduct.product?.imageCover ??
                       NetworkImages.noImageAvailable,
                   fit: BoxFit.cover,
-                  placeholder:
-                      (context, url) => const CircularProgressIndicator(),
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
                 ),
               ),
             ),
@@ -73,7 +75,7 @@ class CartProductWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    cartProduct.product?.availableColors?[colorIndex] ?? '',
+                    "",
                     style: textTheme.bodySmall?.copyWith(
                       color: colorScheme.secondary.withValues(alpha: .6),
                     ),
@@ -91,7 +93,11 @@ class CartProductWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  BlocProvider.of<CartCubit>(context).removeFromCart(
+                    cartProduct.product!.id!,
+                  );
+                },
                 icon: const Icon(Iconsax.trash_outline),
               ),
               Container(
@@ -110,7 +116,10 @@ class CartProductWidget extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        //TODO: Implement (-) product count
+                        BlocProvider.of<CartCubit>(context).updateCartQuantity(
+                          cartProduct.product!.id!,
+                          cartProduct.count! - 1,
+                        );
                       },
                       child: Icon(
                         Icons.remove_circle_outline,
@@ -126,7 +135,10 @@ class CartProductWidget extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //TODO: Implement add product count
+                        BlocProvider.of<CartCubit>(context).updateCartQuantity(
+                          cartProduct.product!.id!,
+                          cartProduct.count! + 1,
+                        );
                       },
                       child: Icon(
                         Icons.add_circle_outline,

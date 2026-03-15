@@ -1,4 +1,4 @@
-import 'package:route_e_commerce_v2/features/products/domain/entity/product.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/models/product.dart';
 
 class CartProduct {
   final int? count;

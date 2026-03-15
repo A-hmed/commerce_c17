@@ -1,19 +1,20 @@
 import 'package:route_e_commerce_v2/features/cart/domain/entities/cart_product_entity.dart';
-import 'package:route_e_commerce_v2/features/products/data/model/products_dto.dart';
+import 'package:route_e_commerce_v2/features/commerce/data/mappers/product_mapper.dart';
+import 'package:route_e_commerce_v2/features/network/models/response/products/remote_product.dart';
 
-class CartProductDto {
+class RemoteCartProduct {
   int? count;
   String? id;
-  ProductsDto? product;
+  RemoteProduct? product;
   int? price;
 
-  CartProductDto({this.count, this.id, this.product, this.price});
+  RemoteCartProduct({this.count, this.id, this.product, this.price});
 
-  CartProductDto.fromJson(Map<String, dynamic> json) {
+  RemoteCartProduct.fromJson(Map<String, dynamic> json) {
     count = json['count'];
     id = json['_id'];
     product =
-        json['product'] != null ? ProductsDto.fromJson(json['product']) : null;
+        json['product'] != null ? RemoteProduct.fromJson(json['product']) : null;
     price = json['price'];
   }
 
@@ -33,7 +34,7 @@ class CartProductDto {
       count: count,
       id: id,
       price: price,
-      product: product?.toEntity(),
+      product: product?.toProduct(),
     );
   }
 }

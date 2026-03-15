@@ -24,6 +24,16 @@ import '../../features/auth/domain/repositories/auth_repo.dart' as _i723;
 import '../../features/auth/domain/usecase/login_usecase.dart' as _i911;
 import '../../features/auth/domain/usecase/regsiter_usecase.dart' as _i602;
 import '../../features/auth/ui/screens/login/cubit/login_cubit.dart' as _i413;
+import '../../features/cart/data/mapper/cart_mapper.dart' as _i817;
+import '../../features/cart/data/repositories/cart_repository/cart_repository_impl.dart'
+    as _i160;
+import '../../features/cart/data/repositories/cart_repository/data_sources/cart_remote_data_source.dart'
+    as _i924;
+import '../../features/cart/data/repositories/cart_repository/data_sources/cart_remote_data_source_impl.dart'
+    as _i575;
+import '../../features/cart/domain/repositories/cart_repository.dart' as _i322;
+import '../../features/cart/presentation/screen/cart_cubit/cart_cubit.dart'
+    as _i358;
 import '../../features/commerce/data/mappers/category_mapper.dart' as _i360;
 import '../../features/commerce/data/repositories/home_repo/data_sorues/home_remote_data_source.dart'
     as _i415;
@@ -55,10 +65,21 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final getItModule = _$GetItModule();
     gh.factory<_i652.SharedPrefsUtils>(() => _i652.SharedPrefsUtils());
+    gh.factory<_i817.CartMapper>(() => _i817.CartMapper());
     gh.factory<_i360.CategoryMapper>(() => _i360.CategoryMapper());
     gh.singleton<_i895.Connectivity>(() => getItModule.createConnectivity());
     gh.singleton<_i361.Dio>(() => getItModule.createDio());
     gh.singleton<_i652.ApiClient>(() => _i652.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i924.CartRemoteDataSource>(
+      () => _i575.CartRemoteDataSourceImpl(gh<_i652.ApiClient>()),
+    );
+    gh.factory<_i322.CartRepository>(
+      () => _i160.CartRepositoryImpl(
+        gh<_i817.CartMapper>(),
+        gh<_i895.Connectivity>(),
+        gh<_i924.CartRemoteDataSource>(),
+      ),
+    );
     gh.factory<_i415.HomeRemoteDataSource>(
       () => _i716.HomeRemoteDataSourceImpl(gh<_i652.ApiClient>()),
     );
@@ -73,6 +94,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i747.AuthRemoteDataSource>(),
         gh<_i895.Connectivity>(),
       ),
+    );
+    gh.singleton<_i358.CartCubit>(
+      () => _i358.CartCubit(gh<_i322.CartRepository>()),
     );
     gh.factory<_i911.LoginUsecase>(
       () => _i911.LoginUsecase(gh<_i723.AuthRepo>()),

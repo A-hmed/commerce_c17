@@ -1,20 +1,20 @@
 import 'package:route_e_commerce_v2/features/cart/domain/entities/cart_entity.dart';
 
-import 'cart_dto.dart';
+import 'remote_cart.dart';
 
-class CartResponseDto {
+class CartResponse {
   String? status;
   int? numOfCartItems;
   String? cartId;
-  CartDto? data;
+  RemoteCart? cart;
 
-  CartResponseDto({this.status, this.numOfCartItems, this.cartId, this.data});
+  CartResponse({this.status, this.numOfCartItems, this.cartId, this.cart});
 
-  CartResponseDto.fromJson(Map<String, dynamic> json) {
+  CartResponse.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     numOfCartItems = json['numOfCartItems'];
     cartId = json['cartId'];
-    data = json['data'] != null ? CartDto.fromJson(json['data']) : null;
+    cart = json['data'] != null ? RemoteCart.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -22,8 +22,8 @@ class CartResponseDto {
     data['status'] = status;
     data['numOfCartItems'] = numOfCartItems;
     data['cartId'] = cartId;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
+    if (this.cart != null) {
+      data['data'] = this.cart!.toJson();
     }
     return data;
   }
@@ -31,7 +31,7 @@ class CartResponseDto {
   CartEntity toEntity() {
     return CartEntity(
       cartId: cartId,
-      data: data?.toEntity(),
+      data: cart?.toEntity(),
       numOfCartItems: numOfCartItems,
       status: status,
     );

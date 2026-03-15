@@ -1,11 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:route_e_commerce_v2/core/di/di.dart';
 import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
+import 'package:route_e_commerce_v2/features/cart/presentation/screen/cart_cubit/cart_cubit.dart';
+import 'package:route_e_commerce_v2/features/cart/presentation/screen/cart_cubit/cart_state.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/models/product.dart';
 
 class CustomProductCard extends StatelessWidget {
   final Product product;
+
   const CustomProductCard({super.key, required this.product});
 
   @override
@@ -68,12 +73,13 @@ class CustomProductCard extends StatelessWidget {
                           ),
                           Text(
                             " ${product.price ?? 0}",
-                            style: Theme.of(
-                              context,
-                            ).textTheme.headlineSmall?.copyWith(
-                              color: colorScheme.primary.withValues(alpha: .6),
-                              decoration: TextDecoration.lineThrough,
-                            ),
+                            style: Theme.of(context).textTheme.headlineSmall
+                                ?.copyWith(
+                                  color: colorScheme.primary.withValues(
+                                    alpha: .6,
+                                  ),
+                                  decoration: TextDecoration.lineThrough,
+                                ),
                           ),
                         ],
                       ),
@@ -90,18 +96,7 @@ class CustomProductCard extends StatelessWidget {
                               SvgPicture.asset(AppSvgs.ratingIcon),
                             ],
                           ),
-                          IconButton(
-                            onPressed: () {
-                              // TODO: Implement add to cart functionality
-                            },
-                            style: IconButton.styleFrom(
-                              backgroundColor: colorScheme.primary,
-                              foregroundColor: colorScheme.onPrimary,
-                              visualDensity: VisualDensity.compact,
-                              shape: const CircleBorder(),
-                            ),
-                            icon: const Icon(Icons.add_rounded),
-                          ),
+                          buildCartActionButton(colorScheme),
                         ],
                       ),
                     ],
@@ -128,6 +123,35 @@ class CustomProductCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget buildCartActionButton(ColorScheme colorScheme) {
+    CartCubit cubit = getIt();
+
+    return BlocBuilder<CartCubit, CartState>(
+      builder: (context, state) {
+        return IconButton(
+          onPressed: () {
+            if (cubit.isProductInCart(product.id!)) {
+              cubit.removeFromCart(product.id!);
+            } else {
+              cubit.addToCart(product.id!);
+            }
+          },
+          style: IconButton.styleFrom(
+            backgroundColor: colorScheme.primary,
+            foregroundColor: colorScheme.onPrimary,
+            visualDensity: VisualDensity.compact,
+            shape: const CircleBorder(),
+          ),
+          icon: Icon(
+            cubit.isProductInCart(product.id!)
+                ? Icons.remove_rounded
+                : Icons.add_rounded,
+          ),
+        );
+      },
     );
   }
 }

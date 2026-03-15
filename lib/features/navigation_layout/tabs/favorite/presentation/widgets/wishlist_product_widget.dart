@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dart';
 import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
-import 'package:route_e_commerce_v2/features/products/domain/entity/product.dart';
+
+import '../../../../../commerce/domain/models/product.dart';
 
 class WishlistProductWidget extends StatelessWidget {
   final Product? product;

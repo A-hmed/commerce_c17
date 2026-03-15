@@ -4,7 +4,7 @@ import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dar
 import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
 
 class CheckoutSection extends StatelessWidget {
-  final int totalCartPrice;
+  final double totalCartPrice;
   const CheckoutSection({super.key, required this.totalCartPrice});
 
   @override

@@ -1,17 +1,17 @@
 import 'package:route_e_commerce_v2/features/cart/domain/entities/cart.dart';
 
-import 'cart_product_dto.dart';
+import 'remote_cart_product.dart';
 
-class CartDto {
+class RemoteCart {
   String? id;
   String? cartOwner;
-  List<CartProductDto>? products;
+  List<RemoteCartProduct>? products;
   String? createdAt;
   String? updatedAt;
   int? v;
   int? totalCartPrice;
 
-  CartDto({
+  RemoteCart({
     this.id,
     this.cartOwner,
     this.products,
@@ -21,13 +21,13 @@ class CartDto {
     this.totalCartPrice,
   });
 
-  CartDto.fromJson(Map<String, dynamic> json) {
+  RemoteCart.fromJson(Map<String, dynamic> json) {
     id = json['_id'];
     cartOwner = json['cartOwner'];
     if (json['products'] != null) {
-      products = <CartProductDto>[];
+      products = <RemoteCartProduct>[];
       json['products'].forEach((v) {
-        products!.add(CartProductDto.fromJson(v));
+        products!.add(RemoteCartProduct.fromJson(v));
       });
     }
     createdAt = json['createdAt'];
